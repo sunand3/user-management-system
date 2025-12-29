@@ -9,7 +9,7 @@
     </option>
   </component>
   <component name="ProjectResources">
-    <resource url="http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd " location="$USER_HOME$/AppData/Local/JetBrains/IdeaIC2024.1/schemas/jakartaee/web-app_3_1.xsd " />
+    <resource url="http://appengine.google.com/ns/1.0 " location="https://cloud.google.com/appengine/docs/standard/java/config/appengine-web.xsd " />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="ms-21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

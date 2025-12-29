@@ -85,3 +85,11 @@ gcloud auth application-default login
 copy target/*.war C:\Users\apache-tomcat-9.0.112\webapps
 cd C:\Users\apache-tomcat-9.0.112\bin
 startup.bat
+
+Access the app at:
+Base URL:
+http://localhost:8080
+
+http://localhost:8080/user-management-system-1.0-SNAPSHOT/index.html
+
+http://localhost:8080/user-management-system-1.0-SNAPSHOT/migration.html
