@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migration - User Management System</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>BigQuery Migration</h1>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="migration.html" class="active">Migration</a>
+            <a href="#" id="logoutBtn">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Migration Status</h2>
+            <div id="migrationStats" class="stats-container">
+                <div class="stat-card">
+                    <h3>Total Users</h3>
+                    <p id="totalUsers">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Migrated Users</h3>
+                    <p id="migratedUsers">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Pending Users</h3>
+                    <p id="pendingUsers">0</p>
+                </div>
+            </div>
+
+            <div class="migration-actions">
+                <button onclick="startBulkMigration()" class="btn btn-primary" id="migrateBtn">
+                    Start Bulk Migration
+                </button>
+                <button onclick="loadMigrationStatus()" class="btn btn-secondary">
+                    Refresh Status
+                </button>
+            </div>
+
+            <div id="migrationStatus" class="status-message" style="display: none;"></div>
+
+            <div id="migrationProgress" class="progress-container" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+                <p id="progressText"></p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Migrated Records (BigQuery)</h2>
+            <div class="table-container">
+                <table id="migratedTable">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                    </thead>
+                    <tbody id="migratedTableBody">
+                    <tr>
+                        <td colspan="4" class="loading">Loading migrated records...</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="js/migration.js"></script>
+</body>
+</html>

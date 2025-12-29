@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System - Upload</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>User Management System</h1>
+        <nav>
+            <a href="index.html" class="active">Upload</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Upload Excel File</h2>
+            <p>Upload an Excel file (.xlsx) with user data. The file must have columns: Name, DOB, Email, Password, Phone, Gender, Address</p>
+
+            <form id="uploadForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="fileInput">Select Excel File:</label>
+                    <input type="file" id="fileInput" name="file" accept=".xlsx" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Upload File</button>
+            </form>
+
+            <div id="uploadStatus" class="status-message" style="display: none;"></div>
+
+            <div id="uploadProgress" class="progress-bar" style="display: none;">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Excel File Format</h3>
+            <table class="format-table">
+                <thead>
+                <tr>
+                    <th>Column</th>
+                    <th>Type</th>
+                    <th>Example</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td>Text</td>
+                    <td>John Doe</td>
+                </tr>
+                <tr>
+                    <td>DOB</td>
+                    <td>Date (DD/MM/YYYY)</td>
+                    <td>15/03/1990</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>Text</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>Text</td>
+                    <td>password123</td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>Text</td>
+                    <td>1234567890</td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>Text</td>
+                    <td>Male/Female</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>Text</td>
+                    <td>123 Main St, City</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

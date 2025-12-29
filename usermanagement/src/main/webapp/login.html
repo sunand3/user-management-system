@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - User Management System</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>User Management System</h1>
+        <nav>
+            <a href="index.html">Upload</a>
+            <a href="login.html" class="active">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="card login-card">
+            <h2>Login to Dashboard</h2>
+            <p>Enter your credentials to access the user management dashboard</p>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+
+            <div id="loginStatus" class="status-message" style="display: none;"></div>
+        </div>
+    </main>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const statusDiv = document.getElementById('loginStatus');
+
+        try {
+            const response = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                statusDiv.textContent = 'Login successful! Redirecting...';
+                statusDiv.className = 'status-message success';
+                statusDiv.style.display = 'block';
+
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 1000);
+            } else {
+                statusDiv.textContent = result.message || 'Login failed';
+                statusDiv.className = 'status-message error';
+                statusDiv.style.display = 'block';
+            }
+        } catch (error) {
+            statusDiv.textContent = 'Error: ' + error.message;
+            statusDiv.className = 'status-message error';
+            statusDiv.style.display = 'block';
+        }
+    });
+</script>
+</body>
+</html>
